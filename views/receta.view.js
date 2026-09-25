@@ -196,265 +196,84 @@ export function editarReceta(receta) {
                 <i class="bi bi-arrow-left"></i> Volver a la receta
             </a>
         </div>
-
         <div class="card border-0 shadow-sm rounded-4 bg-danger-subtle">
-
             <div class="card-body p-4 p-lg-5">
-
                 <div class="mb-4">
-                    <h1 class="fw-bold text-dark mb-2">
-                        Editar receta
-                    </h1>
-
-                    <p class="text-secondary mb-0">
-                        Modificá los datos de la receta y guardá los cambios.
-                    </p>
+                    <h1 class="fw-bold text-dark mb-2">Editar receta</h1>
+                    <p class="text-secondary mb-0">Modificá los datos de la receta y guardá los cambios.</p>
                 </div>
-
                 <form action="/recetas/editar/${receta._id}" method="post">
-
                     <div class="row g-4">
-
-                        <!-- PLATO -->
                         <div class="col-12">
-                            <label for="name" class="form-label fw-semibold">
-                                Plato
-                            </label>
-
-                            <input
-                                type="text"
-                                class="form-control rounded-3"
-                                id="name"
-                                name="name"
-                                value="${receta.name}"
-                                required
-                            >
+                            <label for="name" class="form-label fw-semibold">Plato</label>
+                            <input type="text" class="form-control rounded-3" id="name" name="name" value="${receta.name}" required>
                         </div>
-
-                        <!-- PAÍS -->
                         <div class="col-12 col-md-6">
-                            <label for="country" class="form-label fw-semibold">
-                                País de origen
-                            </label>
-
-                            <input
-                                type="text"
-                                class="form-control rounded-3"
-                                id="country"
-                                name="country"
-                                value="${receta.country}"
-                                required
-                            >
+                            <label for="country" class="form-label fw-semibold">País de origen</label>
+                            <input type="text" class="form-control rounded-3" id="country" name="country" value="${receta.country}" required>
                         </div>
-
-                        <!-- CATEGORÍA -->
                         <div class="col-12 col-md-6">
-                            <label for="category" class="form-label fw-semibold">
-                                Tipo de plato
-                            </label>
-
-                            <input
-                                type="text"
-                                class="form-control rounded-3"
-                                id="category"
-                                name="category"
-                                value="${receta.category}"
-                                required
-                            >
+                            <label for="category" class="form-label fw-semibold">Tipo de plato</label>
+                            <input type="text" class="form-control rounded-3" id="category" name="category" value="${receta.category}" required>
                         </div>
-
-                        <!-- TIPO -->
                         <div class="col-12 col-md-6">
-                            <label for="type" class="form-label fw-semibold">
-                                Tipo
-                            </label>
-
-                            <select
-                                class="form-select rounded-3"
-                                id="type"
-                                name="type"
-                                required
-                            >
-                                <option value="Vegetarian" ${receta.type === "Vegetarian" ? "selected" : ""}>
-                                    Vegetariano
-                                </option>
-
-                                <option value="Non-Vegetarian" ${receta.type === "Non-Vegetarian" ? "selected" : ""}>
-                                    No vegetariano
+                            <label for="type" class="form-label fw-semibold">Tipo</label>
+                            <select class="form-select rounded-3" id="type" name="type" required>
+                                <option value="Vegetarian" ${receta.type === "Vegetarian" ? "selected" : ""}>Vegetariano</option>
+                                <option value="Non-Vegetarian" ${receta.type === "Non-Vegetarian" ? "selected" : ""}>No vegetariano
                                 </option>
                             </select>
                         </div>
-
-                        <!-- DIFICULTAD -->
                         <div class="col-12 col-md-6">
-                            <label for="difficulty" class="form-label fw-semibold">
-                                Dificultad
-                            </label>
-
-                            <select
-                                class="form-select rounded-3"
-                                id="difficulty"
-                                name="difficulty"
-                                required
-                            >
-                                <option value="Easy" ${receta.difficulty === "Easy" ? "selected" : ""}>
-                                    Fácil
-                                </option>
-
-                                <option value="Medium" ${receta.difficulty === "Medium" ? "selected" : ""}>
-                                    Media
-                                </option>
-
-                                <option value="Hard" ${receta.difficulty === "Hard" ? "selected" : ""}>
-                                    Difícil
-                                </option>
+                            <label for="difficulty" class="form-label fw-semibold">Dificultad</label>
+                            <select class="form-select rounded-3" id="difficulty" name="difficulty" required>
+                                <option value="Easy" ${receta.difficulty === "Easy" ? "selected" : ""}>Fácil</option>
+                                <option value="Medium" ${receta.difficulty === "Medium" ? "selected" : ""}>Media</option>
+                                <option value="Hard" ${receta.difficulty === "Hard" ? "selected" : ""}>Difícil</option>
                             </select>
                         </div>
-
-                        <!-- PREPARACIÓN -->
                         <div class="col-12 col-md-6">
-                            <label for="prepTime" class="form-label fw-semibold">
-                                Tiempo de preparación
-                            </label>
-
+                            <label for="prepTime" class="form-label fw-semibold">Tiempo de preparación</label>
                             <div class="input-group">
-                                <input
-                                    type="number"
-                                    class="form-control rounded-start-3"
-                                    id="prepTime"
-                                    name="prepTime"
-                                    value="${receta.prepTime}"
-                                    min="0"
-                                    required
-                                >
-
-                                <span class="input-group-text rounded-end-3">
-                                    min
-                                </span>
+                                <input type="number" class="form-control rounded-start-3" id="prepTime" name="prepTime" value="${receta.prepTime}" min="0" required>
+                                <span class="input-group-text rounded-end-3">min</span>
                             </div>
                         </div>
-
-                        <!-- COCCIÓN -->
                         <div class="col-12 col-md-6">
-                            <label for="cookTime" class="form-label fw-semibold">
-                                Tiempo de cocción
-                            </label>
-
+                            <label for="cookTime" class="form-label fw-semibold">Tiempo de cocción</label>
                             <div class="input-group">
-                                <input
-                                    type="number"
-                                    class="form-control rounded-start-3"
-                                    id="cookTime"
-                                    name="cookTime"
-                                    value="${receta.cookTime}"
-                                    min="0"
-                                    required
-                                >
-
-                                <span class="input-group-text rounded-end-3">
-                                    min
-                                </span>
+                                <input type="number" class="form-control rounded-start-3" id="cookTime" name="cookTime" value="${receta.cookTime}" min="0" required>
+                                <span class="input-group-text rounded-end-3">min</span>
                             </div>
                         </div>
-
-                        <!-- IMAGEN -->
                         <div class="col-12">
-                            <label for="image" class="form-label fw-semibold">
-                                Imagen del plato
-                            </label>
-
-                            <input
-                                type="text"
-                                class="form-control rounded-3"
-                                id="image"
-                                name="image"
-                                value="${receta.image}"
-                                required
-                            >
-
-                            <div class="form-text">
-                                Ingresá la URL de la imagen.
-                            </div>
+                            <label for="image" class="form-label fw-semibold">Imagen del plato</label>
+                            <input type="text" class="form-control rounded-3" id="image" name="image" value="${receta.image}" required>
+                            <div class="form-text">Ingresá la URL de la imagen.</div>
                         </div>
-
-                        <!-- LINK -->
                         <div class="col-12">
-                            <label for="recetaUrl" class="form-label fw-semibold">
-                                Link a la receta
-                            </label>
-
-                            <input
-                                type="url"
-                                class="form-control rounded-3"
-                                id="recetaUrl"
-                                name="recetaUrl"
-                                value="${receta.recetaUrl}"
-                            >
+                            <label for="recetaUrl" class="form-label fw-semibold">Link a la receta</label>
+                            <input type="url" class="form-control rounded-3" id="recetaUrl" name="recetaUrl" value="${receta.recetaUrl}">
                         </div>
-
-                        <!-- DESCRIPCIÓN -->
                         <div class="col-12">
-                            <label for="description" class="form-label fw-semibold">
-                                Acerca de la receta
-                            </label>
-
-                            <textarea
-                                class="form-control rounded-3"
-                                id="description"
-                                name="description"
-                                rows="4"
-                                required
-                            >${receta.description}</textarea>
+                            <label for="description" class="form-label fw-semibold">Acerca de la receta</label>
+                            <textarea class="form-control rounded-3" id="description" name="description" rows="4" required>${receta.description}</textarea>
                         </div>
-
-                        <!-- ETIQUETAS -->
                         <div class="col-12">
-                            <label for="tags" class="form-label fw-semibold">
-                                Etiquetas
-                            </label>
-
-                            <input
-                                type="text"
-                                class="form-control rounded-3"
-                                id="tags"
-                                name="tags"
-                                value="${Array.isArray(receta.tags) ? receta.tags.join(", ") : receta.tags}"
-                            >
-
-                            <div class="form-text">
-                                Separá las etiquetas con comas.
-                            </div>
+                            <label for="tags" class="form-label fw-semibold">Etiquetas</label>
+                            <input type="text" class="form-control rounded-3" id="tags" name="tags" value="${Array.isArray(receta.tags) ? receta.tags.join(", ") : receta.tags}">
+                            <div class="form-text">Separá las etiquetas con comas.</div>
                         </div>
-
                     </div>
-
-                    <!-- BOTONES -->
                     <div class="d-flex flex-column flex-sm-row gap-2 justify-content-end mt-5">
-
-                        <a
-                            href="/recetas/${receta._id}"
-                            class="btn btn-outline-danger rounded-pill px-4"
-                        >
-                            Cancelar
-                        </a>
-
-                        <button
-                            type="submit"
-                            class="btn btn-danger rounded-pill px-4"
-                        >
-                            <i class="bi bi-check-circle me-2"></i>
-                            Guardar cambios
-                        </button>
-
+                        <a href="/recetas/${receta._id}" class="btn btn-outline-danger rounded-pill px-4">Cancelar</a>
+                        <button type="submit" class="btn btn-danger rounded-pill px-4">
+                            <i class="bi bi-check-circle me-2"></i>Guardar cambios</button>
                     </div>
-
                 </form>
-
             </div>
-
         </div>
     `
-
     return createPage("Editar receta", html)
 }
 
@@ -466,101 +285,44 @@ export function eliminarReceta(receta) {
                 <i class="bi bi-arrow-left"></i> Volver a la receta
             </a>
         </div>
-
         <div class="card border-0 shadow-sm rounded-4 bg-danger-subtle">
-
             <div class="card-body p-4 p-lg-5">
-
                 <div class="text-center mb-4">
-
                     <i class="bi bi-exclamation-triangle text-danger display-4"></i>
-
-                    <h1 class="fw-bold text-dark mt-3 mb-2">
-                        Eliminar receta
-                    </h1>
-
-                    <p class="text-secondary mb-0">
-                        ¿Estás seguro de que querés eliminar esta receta?
-                    </p>
-
+                    <h1 class="fw-bold text-dark mt-3 mb-2">Eliminar receta</h1>
+                    <p class="text-secondary mb-0">¿Estás seguro de que querés eliminar esta receta?</p>
                 </div>
-
                 <div class="card border-0 bg-white rounded-4 overflow-hidden mb-4">
-
                     <div class="row g-0 align-items-center">
-
                         <div class="col-12 col-md-4">
                             <div class="p-3">
                                 <div class="rounded-4 overflow-hidden">
-                                    <img
-                                        src="${receta.image}"
-                                        alt="${receta.name}"
-                                        class="w-100"
-                                        style="height: 220px; object-fit: cover;"
-                                    >
+                                    <img src="${receta.image}" alt="${receta.name}" class="w-100" style="height: 220px; object-fit: cover;">
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-12 col-md-8">
-
                             <div class="card-body p-4">
-
                                 <div class="d-flex flex-wrap gap-2 mb-2">
-
-                                    <span class="badge bg-danger rounded-pill px-3 py-2">
-                                        ${receta.country}
-                                    </span>
-
-                                    <span class="badge bg-danger-subtle text-danger rounded-pill px-3 py-2">
-                                        ${receta.category}
-                                    </span>
-
+                                    <span class="badge bg-danger rounded-pill px-3 py-2">${receta.country}</span>
+                                    <span class="badge bg-danger-subtle text-danger rounded-pill px-3 py-2">${receta.category}</span>
                                 </div>
-
-                                <h2 class="fw-bold text-dark mb-2">
-                                    ${receta.name}
-                                </h2>
-
-                                <p class="text-secondary mb-0">
-                                    ${receta.description}
-                                </p>
-
+                                <h2 class="fw-bold text-dark mb-2">${receta.name}</h2>
+                                <p class="text-secondary mb-0">${receta.description}</p>
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
                 <form action="/recetas/eliminar/${receta._id}" method="post">
-
                     <div class="d-flex flex-column flex-sm-row gap-2 justify-content-center">
-
-                        <a
-                            href="/recetas/${receta._id}"
-                            class="btn btn-outline-danger rounded-pill px-4"
-                        >
-                            Cancelar
-                        </a>
-
-                        <button
-                            type="submit"
-                            class="btn btn-danger rounded-pill px-4"
-                        >
-                            <i class="bi bi-trash me-2"></i>
-                            Eliminar receta
+                        <a href="/recetas/${receta._id}" class="btn btn-outline-danger rounded-pill px-4">Cancelar</a>
+                        <button type="submit" class="btn btn-danger rounded-pill px-4">
+                            <i class="bi bi-trash me-2"></i>Eliminar receta
                         </button>
-
                     </div>
-
                 </form>
-
             </div>
-
         </div>
     `
-
     return createPage("Eliminar receta", html)
 }

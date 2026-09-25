@@ -4,8 +4,8 @@ import { MongoClient } from "mongodb"
 
 const MONGO_URI="mongodb+srv://admin:admin@proyecto.kfoyaye.mongodb.net/?appName=proyecto"
 
-const client = new MongoClient(MONGO_URI) //Nos conectamos al cluster
-const db = client.db("AH20232CP1")            //Nos conectamos a la DB
+const client = new MongoClient(MONGO_URI)
+const db = client.db("AH20232CP1")
 
 export async function getRecetas(filtros = {}) {
     const filter = { eliminado: { $ne: true } }
@@ -13,7 +13,6 @@ export async function getRecetas(filtros = {}) {
     const limit = parseInt(filtros?.limit || 12)
     const skip = (page - 1) * limit
 
-    // Filtro por pais
     if(filtros.country) filter.country = filtros.country
 
     if(filtros.type) filter.type = filtros.type
@@ -24,8 +23,6 @@ export async function getRecetas(filtros = {}) {
     const sortOrder = filtros.sort_order == "asc" ? -1 : 1
     const sortOptions = { [sortBy]: sortOrder }
 
-
-    // Busqueda por nombre
     if(filtros.plato) filter.name = { $regex: filtros.plato, $options: 'i' }
 
     const collection = db.collection("platos")

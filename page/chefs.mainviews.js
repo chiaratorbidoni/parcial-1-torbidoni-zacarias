@@ -40,22 +40,9 @@ export function createList(lista) {
         html += `
             <div class="col">
                 <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden bg-danger-subtle">
-
-                    <!-- IMAGEN -->
-                    <img
-                        src="${chef.image}"
-                        class="card-img-bottom"
-                        alt="${chef.name}"
-                        style="height: 30vh; object-fit: cover; object-position: center 10%"
-                    >
-
+                    <img src="${chef.image}" class="card-img-bottom" alt="${chef.name}" style="height: 30vh; object-fit: cover; object-position: center 10%">
                     <div class="card-body d-flex flex-column">
-                        <!-- NOMBRE -->
-                        <h5 class="card-title fw-bold text-dark mb-2">
-                            ${chef.name}
-                        </h5>
-
-                        <!-- DESCRIPCIÓN -->
+                        <h5 class="card-title fw-bold text-dark mb-2">${chef.name}</h5>
                         <p class="card-text text-muted small mb-2 flex-grow-1 fs-6">
                             <b>Plato de especialidad:</b> ${chef.specialty}
                         </p>
@@ -65,12 +52,9 @@ export function createList(lista) {
                         <p class="card-text text-muted small mb-2 flex-grow-1 fs-6">
                             <b>Tiene estrellas Michelín:</b> ${chef.stars}
                         </p>
-
-                        <!-- BOTONES -->
                         <div class="mt-auto d-grid gap-2">
                             <a href="${chef.book}" target="_blank" class="btn btn-danger mb-2">Comprar el libro</a>
                         </div>
-
                     </div>
                 </div>
             </div>

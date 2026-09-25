@@ -83,18 +83,8 @@ export function createList(lista, filtros = {}, paginacion = {}) {
         html += `
             <div class="col">
                 <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden bg-danger-subtle">
-
-                    <!-- IMAGEN -->
-                    <img
-                        src="${item.image}"
-                        class="card-img-top"
-                        alt="${item.name}"
-                        style="height: 200px; object-fit: cover;"
-                    >
-
+                    <img src="${item.image}" class="card-img-top" alt="${item.name}" style="height: 200px; object-fit: cover;">
                     <div class="card-body d-flex flex-column">
-
-                        <!-- PAÍS Y CATEGORÍA -->
                         <div class="d-flex gap-2 mb-2">
                             <span class="btn btn-danger rounded-4 text-wrap fs-6">
                                 ${item.country}
@@ -103,18 +93,12 @@ export function createList(lista, filtros = {}, paginacion = {}) {
                                 ${item.category}
                             </span>
                         </div>
-
-                        <!-- NOMBRE -->
                         <h5 class="card-title fw-bold text-dark mb-2">
                             ${item.name}
                         </h5>
-
-                        <!-- DESCRIPCIÓN -->
                         <p class="card-text text-muted small mb-3 flex-grow-1">
                             ${item.description}
                         </p>
-
-                        <!-- DATOS -->
                         <div class="d-flex flex-column gap-1 small mb-3 border-top border-bottom py-2">
                             <div class="d-flex justify-content-between">
                                 <span class="fw-semibold text-secondary">Tipo:</span>
@@ -129,14 +113,11 @@ export function createList(lista, filtros = {}, paginacion = {}) {
                                 <span>${item.prepTime}m / ${item.cookTime}m</span>
                             </div>
                         </div>
-
-                        <!-- BOTONES -->
                         <div class="mt-auto d-grid gap-2">
                             <a href="${item.recetaUrl}" target="_blank" class="btn btn-danger">Ver receta</a>
                             <a href="/recetas/${item._id}" target="_blank" class="btn btn-outline-danger btn-sm"
                             >Detalles del plato</a>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -146,27 +127,23 @@ export function createList(lista, filtros = {}, paginacion = {}) {
     html += `
         </div>
 
-<div class="d-flex justify-content-center gap-2 mt-5">
-
-    ${paginacion.page > 1 ? `
-        <a href="${urlFiltro(filtros, "page", paginacion.page - 1)}"
-           class="btn btn-outline-danger rounded-pill">
-            ← Anterior
-        </a>
-    ` : ""}
-
-    <span class="btn btn-danger rounded-pill">
-        Página ${paginacion.page} de ${paginacion.totalPages}
-    </span>
-
-    ${paginacion.page < paginacion.totalPages ? `
-        <a href="${urlFiltro(filtros, "page", paginacion.page + 1)}"
-           class="btn btn-outline-danger rounded-pill">
-            Siguiente →
-        </a>
-    ` : ""}
-
-</div>`
+        <div class="d-flex justify-content-center gap-2 mt-5">
+            ${paginacion.page > 1 ? `
+                <a href="${urlFiltro(filtros, "page", paginacion.page - 1)}"
+                class="btn btn-outline-danger rounded-pill">
+                    ← Anterior
+                </a>
+            ` : ""}
+            <span class="btn btn-danger rounded-pill">
+                Página ${paginacion.page} de ${paginacion.totalPages}
+            </span>
+            ${paginacion.page < paginacion.totalPages ? `
+                <a href="${urlFiltro(filtros, "page", paginacion.page + 1)}"
+                class="btn btn-outline-danger rounded-pill">
+                    Siguiente →
+                </a>
+            ` : ""}
+        </div>`
 
 return html
 
